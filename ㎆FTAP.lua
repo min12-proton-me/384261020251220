@@ -1,32 +1,14 @@
---A
-local function getRandomRGB()
-    local Ar = math.random(0, 255)
-    local Ag = math.random(0, 255)
-    local Ab = math.random(0, 255)
-    return { AR = Ar, AG = Ag, AB = Ab }
-end
-
---B
-local function getRandomRGB()
-    local Br = math.random(0, 255)
-    local Bg = math.random(0, 255)
-    local Bb = math.random(0, 255)
-    return { BR = Br, BG = Bg, BB = Bb }
-end
-
-local color = getRandomRGB()
 local CONFIGURATION = {
-    RANGE = 42.5;
+    RANGE = 40;
 }
-
 local UserInputService = game:GetService("UserInputService")
 local ReplicatedFirst = game:GetService("ReplicatedFirst")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 ReplicatedStorage.DataEvents.UpdateLineColorsEvent:FireServer(ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(color.AR, color.AG, color.AB));
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(color.BR, color.BG, color.BB));
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0));
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0));
 }))
 Player.CharacterAdded:Connect(function(Character)
     for i = 1, 10 do
